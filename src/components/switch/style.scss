@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 
     .switch {
         font-size: 17px;
@@ -112,5 +112,10 @@
 
     .input:checked+.slider:before {
         transform: translateX(30px);
+    }
+
+    .historyIcon {
+        height: 30px;
+        width: 30px;
     }
 }

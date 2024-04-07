@@ -1,0 +1,30 @@
+.Screen {
+
+    padding: 20px;
+    margin-top: 120px;
+
+    .operations {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .current,
+        .equal {
+            // color: #373737;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+    }
+
+    .history {
+        color: #939393;
+        font-size: 20px;
+        letter-spacing: 2px;
+        text-align: right;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+
+}

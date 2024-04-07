@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/slice";
+import { VscHistory } from "react-icons/vsc";
 import "./style.scss";
 type Props = {};
 
@@ -9,6 +10,7 @@ function Switch({}: Props) {
   const dispatch = useDispatch();
   return (
     <div className="Switch">
+      <div></div>
       <label className="switch">
         <span className="sun">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -32,6 +34,10 @@ function Switch({}: Props) {
         />
         <span className="slider"></span>
       </label>
+      <VscHistory
+        fill={theme == "dark" ? "#f9f9f9" : "#373737"}
+        className="historyIcon"
+      />
     </div>
   );
 }
