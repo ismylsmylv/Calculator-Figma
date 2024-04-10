@@ -55,13 +55,31 @@ function Keyboard() {
         className="right"
         style={{ backgroundColor: blue, color: textColor }}
       >
-        <button className="divide" style={{ color: textColor }}>
+        <button
+          className="divide"
+          style={{ color: textColor }}
+          onClick={() => {
+            dispatch(setOperation("/"));
+          }}
+        >
           /
         </button>
-        <button className="multiply" style={{ color: textColor }}>
+        <button
+          className="multiply"
+          style={{ color: textColor }}
+          onClick={() => {
+            dispatch(setOperation("*"));
+          }}
+        >
           *
         </button>
-        <button className="subract" style={{ color: textColor }}>
+        <button
+          className="subract"
+          style={{ color: textColor }}
+          onClick={() => {
+            dispatch(setOperation("-"));
+          }}
+        >
           -
         </button>
         <button

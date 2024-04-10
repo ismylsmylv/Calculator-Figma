@@ -7,9 +7,11 @@ type Props = {};
 function Screen({}: Props) {
   const theme = useSelector((state) => state.interface.current);
   const result = useSelector((state) => state.interface.result);
+  const previous = useSelector((state) => state.interface.previous);
+
   return (
     <div className="Screen">
-      <div className="history">1000*2+2*2</div>
+      <div className="history">{previous}</div>
       <div className="operations">
         <div
           className="equal"

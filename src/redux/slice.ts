@@ -30,17 +30,30 @@ export const interfaceSlice = createSlice({
     },
     setNumber: (state, action) => {
       state.number = state.number + action.payload;
+      state.previous = state.number;
       console.log(state.number);
     },
     setOperation: (state, action) => {
       state.operation = action.payload;
+      state.previous = state.number + state.operation;
       state.appliedNumber = state.number;
       state.number = "";
+      console.log(state.previous, "state.previous");
     },
     setResult: (state) => {
       state.result =
-        state.operation == "+" &&
-        Number(state.number) + Number(state.appliedNumber);
+        state.operation == "+"
+          ? Number(state.number) + Number(state.appliedNumber)
+          : state.operation == "-"
+          ? Number(state.number) - Number(state.appliedNumber)
+          : state.operation == "*"
+          ? Number(state.number) * Number(state.appliedNumber)
+          : state.operation == "/"
+          ? Number(state.appliedNumber) / Number(state.number)
+          : null;
+      state.number = "";
+      state.appliedNumber = "";
+      state.operation = "";
     },
     setClear: (state) => {
       state.number = "";
