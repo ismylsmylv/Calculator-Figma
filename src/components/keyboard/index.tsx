@@ -1,15 +1,15 @@
 import React from "react";
 import "./style.scss";
 import { useSelector } from "react-redux";
-type Props = {};
+import Button from "../button";
 
-function Keyboard({}: Props) {
+function Keyboard() {
   const theme = useSelector((state) => state.interface.current);
   const blue = theme == "dark" ? "#102C45" : "#ffffff6e";
   const darkBlue = theme == "dark" ? "rgb(9 34 56)" : "#ffffff6e";
   const textColor = theme == "dark" ? "rgb(249, 249, 249)" : "rgb(55, 55, 55)";
   const backColor = theme == "dark" ? "rgb(19,61,87)" : "#9EDBFB";
-
+  const keysArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", "00"];
   return (
     <div
       className="Keyboard"
@@ -17,89 +17,36 @@ function Keyboard({}: Props) {
     >
       <div className="left">
         <div className="upper" style={{ backgroundColor: blue }}>
-          <button className="ac" style={{ color: textColor }}>
-            ac
-          </button>
-          <button className="changer" style={{ color: textColor }}>
-            +/-
-          </button>
-          <button className="percent" style={{ color: textColor }}>
-            %
-          </button>
+          <Button
+            color={textColor}
+            className="numberBtn"
+            displayValue={"ac"}
+            backgroundColor={""}
+          />
+          <Button
+            color={textColor}
+            className="changer"
+            displayValue={"+/-"}
+            backgroundColor={""}
+          />
+          <Button
+            color={textColor}
+            className="percent"
+            displayValue={"%"}
+            backgroundColor={""}
+          />
         </div>
         <div className="keys">
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            1
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            2
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            3
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            4
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            5
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            6
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            7
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            8
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            9
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            .
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            0
-          </button>
-          <button
-            style={{ backgroundColor: blue, color: textColor }}
-            className="numberBtn"
-          >
-            00
-          </button>
+          {keysArr.map((elem) => {
+            return (
+              <Button
+                backgroundColor={blue}
+                color={textColor}
+                className="numberBtn"
+                displayValue={elem}
+              />
+            );
+          })}
         </div>
       </div>
       <div
