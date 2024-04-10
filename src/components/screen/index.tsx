@@ -6,6 +6,7 @@ type Props = {};
 
 function Screen({}: Props) {
   const theme = useSelector((state) => state.interface.current);
+  const result = useSelector((state) => state.interface.result);
   return (
     <div className="Screen">
       <div className="history">1000*2+2*2</div>
@@ -20,7 +21,7 @@ function Screen({}: Props) {
           className="current"
           style={{ color: theme == "dark" ? "#f9f9f9" : "#373737" }}
         >
-          2058
+          {result}
         </div>
       </div>
     </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import "./style.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../button";
+import { setOperation, setResult } from "../../redux/slice";
 
 function Keyboard() {
   const theme = useSelector((state) => state.interface.current);
@@ -10,6 +11,7 @@ function Keyboard() {
   const textColor = theme == "dark" ? "rgb(249, 249, 249)" : "rgb(55, 55, 55)";
   const backColor = theme == "dark" ? "rgb(19,61,87)" : "#9EDBFB";
   const keysArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", "00"];
+  const dispatch = useDispatch();
   return (
     <div
       className="Keyboard"
@@ -62,12 +64,21 @@ function Keyboard() {
         <button className="subract" style={{ color: textColor }}>
           -
         </button>
-        <button className="add" style={{ color: textColor }}>
+        <button
+          className="add"
+          style={{ color: textColor }}
+          onClick={() => {
+            dispatch(setOperation("+"));
+          }}
+        >
           +
         </button>
         <button
           className="result"
           style={{ backgroundColor: darkBlue, color: textColor }}
+          onClick={() => {
+            dispatch(setResult());
+          }}
         >
           =
         </button>
