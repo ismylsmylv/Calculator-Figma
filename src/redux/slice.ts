@@ -45,7 +45,7 @@ export const interfaceSlice = createSlice({
         state.operation == "+"
           ? Number(state.number) + Number(state.appliedNumber)
           : state.operation == "-"
-          ? Number(state.number) - Number(state.appliedNumber)
+          ? Number(state.appliedNumber) - Number(state.number)
           : state.operation == "*"
           ? Number(state.number) * Number(state.appliedNumber)
           : state.operation == "/"
