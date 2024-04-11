@@ -15,7 +15,7 @@ export interface CounterState {
 const initialState: CounterState = {
   current: "light",
   result: 0,
-  history: [],
+  history: JSON.parse(localStorage.getItem("history")) || [],
   operation: "",
   previous: "",
   appliedNumber: "",
@@ -63,6 +63,8 @@ export const interfaceSlice = createSlice({
     setClear: (state) => {
       const toHistory = state.previous + "=" + state.result;
       state.history = [...state.history, toHistory];
+      // const fromLocal = JSON.parse(localStorage.getItem("history")) || [];
+      localStorage.setItem("history", JSON.stringify(state.history));
       state.number = "";
       state.appliedNumber = "";
       state.result = 0;
