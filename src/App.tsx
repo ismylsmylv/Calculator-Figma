@@ -1,11 +1,9 @@
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import "./App.scss";
-import Switch from "./components/switch";
 import Keyboard from "./components/keyboard";
 import Screen from "./components/screen";
-import { useSelector } from "react-redux";
+import Switch from "./components/switch";
 function App() {
-  const [count, setCount] = useState(0);
   const theme = useSelector((state) => state.interface.current);
   return (
     <div

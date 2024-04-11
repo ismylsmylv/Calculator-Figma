@@ -17,7 +17,7 @@ const initialState: CounterState = {
   history: [],
   operation: "",
   previous: "",
-  appliedNumber: 0,
+  appliedNumber: "",
   number: "",
 };
 
@@ -30,13 +30,13 @@ export const interfaceSlice = createSlice({
     },
     setNumber: (state, action) => {
       state.number = state.number + action.payload;
-      state.previous = state.number;
+      state.previous = state.previous + action.payload;
       console.log(state.number);
     },
     setOperation: (state, action) => {
       state.operation = action.payload;
-      state.previous = state.number + state.operation;
       state.appliedNumber = state.number;
+      state.previous = state.appliedNumber + state.operation;
       state.number = "";
       console.log(state.previous, "state.previous");
     },
@@ -56,10 +56,14 @@ export const interfaceSlice = createSlice({
       state.operation = "";
     },
     setClear: (state) => {
+      const toHistory = state.previous + "=" + state.result;
+      state.history = [...state.history, toHistory];
       state.number = "";
       state.appliedNumber = "";
       state.result = 0;
       state.operation = "";
+      state.previous = "";
+      return console.log(toHistory);
     },
   },
 });
