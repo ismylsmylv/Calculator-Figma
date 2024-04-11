@@ -5,6 +5,7 @@ export interface CounterState {
   current: string;
   result: number;
   history: object[];
+  historyOpen: boolean;
   operation: string;
   previous: string;
   number: string;
@@ -19,6 +20,7 @@ const initialState: CounterState = {
   previous: "",
   appliedNumber: "",
   number: "",
+  historyOpen: false,
 };
 
 export const interfaceSlice = createSlice({
@@ -27,6 +29,9 @@ export const interfaceSlice = createSlice({
   reducers: {
     toggleTheme: (state) => {
       state.current = state.current == "light" ? "dark" : "light";
+    },
+    toggleHistory: (state) => {
+      state.historyOpen = !state.historyOpen;
     },
     setNumber: (state, action) => {
       state.number = state.number + action.payload;
@@ -63,13 +68,18 @@ export const interfaceSlice = createSlice({
       state.result = 0;
       state.operation = "";
       state.previous = "";
-      return console.log(toHistory);
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { toggleTheme, setNumber, setResult, setOperation, setClear } =
-  interfaceSlice.actions;
+export const {
+  toggleTheme,
+  setNumber,
+  setResult,
+  setOperation,
+  setClear,
+  toggleHistory,
+} = interfaceSlice.actions;
 
 export default interfaceSlice.reducer;

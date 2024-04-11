@@ -1,0 +1,41 @@
+.History {
+
+    padding: 40px;
+    overflow-y: scroll;
+    height: 260px;
+
+    .historyList {
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        flex-direction: column;
+    }
+
+    .current,
+    .equal {
+        // color: #373737;
+        color: #939393;
+        font-size: 25px;
+        letter-spacing: 2px;
+        text-align: right;
+        font-weight: 500;
+        margin-bottom: 10px;
+        text-overflow: clip;
+        word-break: break-all;
+
+    }
+
+
+
+    .history {
+        color: #939393;
+        font-size: 20px;
+        letter-spacing: 2px;
+        text-align: right;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+
+}

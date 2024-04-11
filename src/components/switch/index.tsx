@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme } from "../../redux/slice";
+import { toggleHistory, toggleTheme } from "../../redux/slice";
 import { VscHistory } from "react-icons/vsc";
 import "./style.scss";
 type Props = {};
 
 function Switch({}: Props) {
   const theme = useSelector((state) => state.interface.current);
+  const history = useSelector((state) => state.interface.history);
   const dispatch = useDispatch();
   return (
     <div className="Switch">
@@ -37,6 +38,9 @@ function Switch({}: Props) {
       <VscHistory
         fill={theme == "dark" ? "#f9f9f9" : "#373737"}
         className="historyIcon"
+        onClick={() => {
+          dispatch(toggleHistory());
+        }}
       />
     </div>
   );

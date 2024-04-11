@@ -118,5 +118,15 @@
     .historyIcon {
         height: 30px;
         width: 30px;
+        cursor: pointer;
+        transition: 200ms linear;
+
+        &:hover {
+            filter: invert(2);
+        }
     }
+
+    // &:active {
+    //     fill: #333334 !important;
+    // }
 }
