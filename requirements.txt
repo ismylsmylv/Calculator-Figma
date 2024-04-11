@@ -1,2 +1,1 @@
-1. history saves on local storage
 2. use usecallback usememo

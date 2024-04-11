@@ -1,11 +1,12 @@
-import React from "react";
-import "./style.scss";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "../button";
 import { setOperation, setResult } from "../../redux/slice";
-
+import Button from "../button";
+import "./style.scss";
+interface State {
+  interface: any;
+}
 function Keyboard() {
-  const theme = useSelector((state) => state.interface.current);
+  const theme = useSelector((state: State) => state.interface.current);
   const blue = theme == "dark" ? "#102C45" : "#ffffff6e";
   const darkBlue = theme == "dark" ? "rgb(9 34 56)" : "#ffffff6e";
   const textColor = theme == "dark" ? "rgb(249, 249, 249)" : "rgb(55, 55, 55)";

@@ -4,9 +4,14 @@ import Keyboard from "./components/keyboard";
 import Screen from "./components/screen";
 import Switch from "./components/switch";
 import History from "./components/history";
+interface State {
+  interface: any;
+}
 function App() {
-  const theme = useSelector((state) => state.interface.current);
-  const historyOpen = useSelector((state) => state.interface.historyOpen);
+  const theme = useSelector((state: State) => state.interface.current);
+  const historyOpen = useSelector(
+    (state: State) => state.interface.historyOpen
+  );
 
   return (
     <div

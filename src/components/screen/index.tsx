@@ -1,13 +1,13 @@
-import React from "react";
-import "./style.scss";
 import { useSelector } from "react-redux";
+import "./style.scss";
 
-type Props = {};
-
-function Screen({}: Props) {
-  const theme = useSelector((state) => state.interface.current);
-  const result = useSelector((state) => state.interface.result);
-  const previous = useSelector((state) => state.interface.previous);
+interface State {
+  interface: any;
+}
+function Screen() {
+  const theme = useSelector((state: State) => state.interface.current);
+  const result = useSelector((state: State) => state.interface.result);
+  const previous = useSelector((state: State) => state.interface.previous);
 
   return (
     <div className="Screen">

@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface CounterState {
   current: string;
-  result: number;
-  history: object[];
+  result: number | string | null;
+  history: string | object[] | object;
   historyOpen: boolean;
   operation: string;
   previous: string;
@@ -15,7 +14,7 @@ export interface CounterState {
 const initialState: CounterState = {
   current: "light",
   result: 0,
-  history: JSON.parse(localStorage.getItem("history")) || [],
+  history: JSON.parse(localStorage.getItem("history") as string) || [],
   operation: "",
   previous: "",
   appliedNumber: "",
