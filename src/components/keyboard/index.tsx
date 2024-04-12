@@ -3,7 +3,11 @@ import { setOperation, setResult } from "../../redux/slice";
 import Button from "../button";
 import "./style.scss";
 interface State {
-  interface: any;
+  interface: Interface;
+}
+interface Interface {
+  current: string;
+  historyOpen: boolean;
 }
 function Keyboard() {
   const theme = useSelector((state: State) => state.interface.current);

@@ -1,13 +1,12 @@
 import { useSelector } from "react-redux";
 import "./style.scss";
-import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  ReactPortal,
-} from "react";
 interface State {
-  interface: any;
+  interface: Interface;
+}
+interface Interface {
+  current: string;
+  history: object[];
+  historyOpen: boolean;
 }
 function History() {
   const theme = useSelector((state: State) => state.interface.current);
@@ -17,36 +16,19 @@ function History() {
     <div className="History">
       <div className="historyList">
         {history &&
-          history
-            .toReversed()
-            .map(
-              (
-                elem:
-                  | string
-                  | number
-                  | boolean
-                  | ReactElement<
-                      unknown,
-                      string | JSXElementConstructor<unknown>
-                    >
-                  | Iterable<ReactNode>
-                  | ReactPortal
-                  | null
-                  | undefined
-              ) => {
-                return (
-                  <div>
-                    <div
-                      className="current"
-                      style={{ color: theme == "dark" ? "#f9f9f9" : "#373737" }}
-                    >
-                      {elem}
-                    </div>
-                    <div className="line"></div>
-                  </div>
-                );
-              }
-            )}
+          history.map((elem: string | object) => {
+            return (
+              <div>
+                <div
+                  className="current"
+                  style={{ color: theme == "dark" ? "#f9f9f9" : "#373737" }}
+                >
+                  {elem}
+                </div>
+                <div className="line"></div>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

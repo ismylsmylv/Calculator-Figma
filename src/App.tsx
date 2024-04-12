@@ -5,7 +5,11 @@ import Screen from "./components/screen";
 import Switch from "./components/switch";
 import History from "./components/history";
 interface State {
-  interface: any;
+  interface: Interface;
+}
+interface Interface {
+  current: string;
+  historyOpen: boolean;
 }
 function App() {
   const theme = useSelector((state: State) => state.interface.current);

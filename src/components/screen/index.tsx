@@ -2,7 +2,13 @@ import { useSelector } from "react-redux";
 import "./style.scss";
 
 interface State {
-  interface: any;
+  interface: Interface;
+}
+interface Interface {
+  current: string;
+  historyOpen: boolean;
+  result: string;
+  previous: string;
 }
 function Screen() {
   const theme = useSelector((state: State) => state.interface.current);
