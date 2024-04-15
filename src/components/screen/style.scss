@@ -2,6 +2,7 @@
 
     padding: 40px;
     margin-top: 120px;
+    max-width: 400px;
 
     .operations {
         display: flex;
@@ -15,6 +16,13 @@
             font-weight: 600;
         }
 
+        .current {
+            max-width: 300px;
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            text-align: right;
+        }
+
     }
 
     .history {
@@ -24,6 +32,10 @@
         text-align: right;
         font-weight: 500;
         margin-bottom: 10px;
+        max-width: 400px;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+
     }
 
 
