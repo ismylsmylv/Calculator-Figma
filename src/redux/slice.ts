@@ -55,13 +55,13 @@ export const interfaceSlice = createSlice({
           : state.operation == "/"
           ? Number(state.appliedNumber) / Number(state.number)
           : null;
-      state.number = "";
+      state.number = state.result;
       state.appliedNumber = "";
       state.operation = "";
     },
     setClear: (state) => {
       const toHistory = state.previous + "=" + state.result;
-      state.history = [...state.history, toHistory];
+      state.history = [...(state.history as any), toHistory];
       // const fromLocal = JSON.parse(localStorage.getItem("history")) || [];
       localStorage.setItem("history", JSON.stringify(state.history));
       state.number = "";

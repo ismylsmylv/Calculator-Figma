@@ -23,7 +23,7 @@ function History() {
                   className="current"
                   style={{ color: theme == "dark" ? "#f9f9f9" : "#373737" }}
                 >
-                  {elem}
+                  {elem as any}
                 </div>
                 <div className="line"></div>
               </div>

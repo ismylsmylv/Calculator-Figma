@@ -1,7 +1,6 @@
-import React from "react";
+import { VscHistory } from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleHistory, toggleTheme } from "../../redux/slice";
-import { VscHistory } from "react-icons/vsc";
 import "./style.scss";
 
 interface State {
