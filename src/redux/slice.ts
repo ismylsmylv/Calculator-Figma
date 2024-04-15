@@ -54,6 +54,8 @@ export const interfaceSlice = createSlice({
           ? Number(state.number) * Number(state.appliedNumber)
           : state.operation == "/"
           ? Number(state.appliedNumber) / Number(state.number)
+          : state.operation == "%"
+          ? Number((Number(state.appliedNumber) / Number(state.number)) * 100)
           : null;
       state.number = state.result;
       state.appliedNumber = "";
