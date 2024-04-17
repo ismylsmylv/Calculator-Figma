@@ -42,6 +42,15 @@ function Keyboard() {
             displayValue={"%"}
             backgroundColor={""}
           />
+          {/* <button
+            className="multiply"
+            style={{ color: textColor }}
+            onClick={() => {
+              dispatch(setOperation("%"));
+            }}
+          >
+            %
+          </button> */}
         </div>
         <div className="keys">
           {keysArr.map((elem) => {

@@ -1,0 +1,2 @@
+1. add more than 2 numbers, multiple operations
+2. set local storage on = click

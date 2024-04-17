@@ -45,6 +45,7 @@ export const interfaceSlice = createSlice({
       console.log(state.previous, "state.previous");
     },
     setResult: (state) => {
+      console.log(Number(Number(state.appliedNumber) / Number(state.number)));
       state.result =
         state.operation == "+"
           ? Number(state.number) + Number(state.appliedNumber)
@@ -55,9 +56,9 @@ export const interfaceSlice = createSlice({
           : state.operation == "/"
           ? Number(state.appliedNumber) / Number(state.number)
           : state.operation == "%"
-          ? Number((Number(state.appliedNumber) / Number(state.number)) * 100)
+          ? Number(Number(state.appliedNumber) / Number(state.number))
           : null;
-      state.number = state.result;
+      state.number = state.result as string | number;
       state.appliedNumber = "";
       state.operation = "";
     },

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { setClear, setNumber } from "../../redux/slice";
+import { setClear, setNumber, setOperation } from "../../redux/slice";
 
 type Props = {
   displayValue: string;
@@ -17,6 +17,8 @@ function Button({ displayValue, backgroundColor, color, className }: Props) {
       onClick={() => {
         displayValue == "ac"
           ? dispatch(setClear())
+          : displayValue == "%"
+          ? dispatch(setOperation(displayValue))
           : dispatch(setNumber(displayValue));
       }}
     >
